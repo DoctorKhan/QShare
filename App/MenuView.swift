@@ -222,10 +222,22 @@ struct TransferRow: View {
             Text("\(transfer.deviceName) wants to send this\(sizeSuffix)")
                 .font(.caption)
                 .foregroundStyle(.secondary)
-            Text("PIN \(transfer.pin)")
-                .font(.caption.monospacedDigit())
-                .foregroundStyle(.secondary)
-                .help("This should match the PIN shown on the phone")
+            HStack(spacing: 6) {
+                Image(systemName: "lock.shield")
+                    .foregroundStyle(Color.accentColor)
+                Text("Confirm this matches your phone:")
+                    .font(.caption)
+                Text(transfer.pin)
+                    .font(.system(.body, design: .monospaced).weight(.semibold))
+                    .tracking(2)
+            }
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
+            .padding(.top, 2)
+            .help("If the PIN on the sending device is different, someone may be intercepting the transfer. Decline it.")
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Confirm this matches your phone: PIN \(transfer.pin.map(String.init).joined(separator: " "))")
             HStack(spacing: 8) {
                 Button("Accept") { transfer.accept() }
                     .buttonStyle(.borderedProminent)

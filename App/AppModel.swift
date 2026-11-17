@@ -350,11 +350,10 @@ final class AppModel: NSObject, ObservableObject, UNUserNotificationCenterDelega
     private func requestID(_ transfer: IncomingTransfer) -> String { "request-\(transfer.id.uuidString)" }
 
     private func notifyRequest(_ transfer: IncomingTransfer) {
-        var body = transfer.summary
+        var body = "Confirm this matches your phone: PIN \(transfer.pin)\n\(transfer.summary)"
         if transfer.totalBytes > 0 {
             body += " (\(ByteCountFormatter.string(fromByteCount: transfer.totalBytes, countStyle: .file)))"
         }
-        body += " · PIN \(transfer.pin)"
         notify(id: requestID(transfer), title: "\(transfer.deviceName) wants to send you something",
                body: body, category: Action.requestCategory, transfer: transfer)
     }
