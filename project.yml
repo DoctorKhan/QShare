@@ -1,0 +1,36 @@
+name: QShare
+options:
+  bundleIdPrefix: app.qshare
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+packages:
+  QuickShareKit:
+    path: .
+targets:
+  QShare:
+    type: application
+    platform: macOS
+    sources:
+      - App
+    dependencies:
+      - package: QuickShareKit
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: QShare
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.utilities
+        NSLocalNetworkUsageDescription: QShare listens on your local network so phones nearby can send files to this Mac.
+        NSBonjourServices:
+          - _FC9F5ED42C8A._tcp
+        NSBluetoothAlwaysUsageDescription: QShare uses Bluetooth to notice when a nearby phone starts sharing, so it shows up faster.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.qshare.mac
+        PRODUCT_NAME: QShare
+        SWIFT_VERSION: "5.0"
+        ENABLE_HARDENED_RUNTIME: NO
+        CODE_SIGNING_ALLOWED: NO
