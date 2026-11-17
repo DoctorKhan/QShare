@@ -1,0 +1,14 @@
+QShare
+Copyright 2026 Reswanul Khan (Rez Khan)
+
+This product includes software developed at Google LLC, used under the
+Apache License, Version 2.0:
+
+  Nearby Share / Quick Share protocol buffer definitions in Protos/
+  (and the generated Swift sources under Sources/QuickShareKit/Generated/)
+
+This product depends on:
+
+  SwiftProtobuf — https://github.com/apple/swift-protobuf
+  Copyright (c) 2014 - 2016 Apple Inc. and the SwiftProtobuf project authors
+  Licensed under the Apache License, Version 2.0
