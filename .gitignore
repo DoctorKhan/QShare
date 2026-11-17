@@ -1,0 +1,9 @@
+.build/
+build/
+QShare.xcodeproj/
+.DS_Store
+*.xcuserstate
+*.xcuserdatad
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
