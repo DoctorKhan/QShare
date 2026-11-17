@@ -13,6 +13,7 @@ fi
 
 xcodegen generate --quiet
 xcodebuild -project QShare.xcodeproj -scheme QShare -configuration Release \
+  -destination 'generic/platform=macOS' \
   -derivedDataPath build/DerivedData -quiet build
 
 APP="build/QShare.app"
